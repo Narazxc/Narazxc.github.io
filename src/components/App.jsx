@@ -23,6 +23,7 @@ import expressIcon from "../assets/express-original.svg";
 import laravelIcon from "../assets/laravel-plain-wordmark.svg";
 import UploadProjectForm from "./UploadProjectForm";
 import ContactForm from "./ContactForm";
+import ProjectList from "./ProjectList";
 
 function App() {
   const [isOpenDialog, setIsOpenDialog] = useState(false);
@@ -117,7 +118,9 @@ function App() {
         </section>
         <section className="projects mb-14 p-4">
           <h2 className="my-4 text-2xl font-bold">Projects</h2>
-          <GridContainer></GridContainer>
+          <GridContainer>
+            <ProjectList />
+          </GridContainer>
         </section>
 
         <section>

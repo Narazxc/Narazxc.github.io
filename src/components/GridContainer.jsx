@@ -1,7 +1,7 @@
-function GridContainer() {
+function GridContainer({ children }) {
   return (
     <div className="grid grid-cols-2 gap-4">
-      <div className="h-52 rounded-md bg-purple-300 hover:bg-green-300">
+      {/* <div className="h-52 rounded-md bg-purple-300 hover:bg-green-300">
         Fast React Pizza
       </div>
       <div className="h-52 rounded-md bg-purple-300 hover:bg-green-300">
@@ -19,23 +19,20 @@ function GridContainer() {
       <div className="h-52 rounded-md bg-purple-300 hover:bg-green-300">
         react firebase net ninja
       </div>
-      <a href="https://secondy.store" target="_blank" rel="noreferrer">
-        <div className="h-52 rounded-md bg-purple-300 hover:bg-green-300">
-          secondy
-        </div>
-      </a>
+      <div className="h-52 rounded-md bg-purple-300 hover:bg-green-300">
+        secondy
+      </div>
       <div className="h-52 rounded-md bg-purple-300 hover:bg-green-300">
         Rbac
       </div>
-      <a
-        href="https://the-wild-oasis-nu-fawn.vercel.app"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <div className="h-52 rounded-md bg-purple-300 hover:bg-green-300">
-          the-wild-oasis
-        </div>
-      </a>
+      <div className="h-52 rounded-md bg-purple-300 hover:bg-green-300">
+        the-wild-oasis
+      </div>
+      <div className="h-52 rounded-md bg-purple-300 hover:bg-green-300">
+        Countries-Catalog
+      </div> */}
+
+      {children}
     </div>
   );
 }
