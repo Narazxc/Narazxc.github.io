@@ -1,9 +1,9 @@
 import Socials from "./Socials";
 import viteLogo from "/vite.svg";
 
-function Navbar({ children, onOpenDialog, onOpenUploadModal }) {
+function Navbar({ children, onOpenDialog, onOpenUploadModal, showNavbar }) {
   return (
-    <nav className="navbar px-4">
+    <nav className={`px-4 ${showNavbar ? "navbar active" : "navbar"}`}>
       {children}
       <Socials />
       <div className="hidden sm:block">

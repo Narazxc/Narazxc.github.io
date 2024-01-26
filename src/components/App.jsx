@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { TypeAnimation } from "react-type-animation";
+import "./CustomCursor.css";
 
 import "../App.css";
 
@@ -28,7 +30,16 @@ import ProjectList from "./ProjectList";
 function App() {
   const [isOpenDialog, setIsOpenDialog] = useState(false);
   const [uploadModal, setUploadModal] = useState(false);
+  const [showFlicker, setShowFlicker] = useState(false);
+  const [hideFlicker, setHideFlicker] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
   const [user, setUser] = useState({});
+
+  // console.log(showFlicker);
+
+  function handleShowFlicker() {
+    setShowFlicker(true);
+  }
 
   function handleOpenUploadModal() {
     setUploadModal(true);
@@ -38,10 +49,55 @@ function App() {
     setIsOpenDialog(true);
   }
 
+  useEffect(() => {
+    function handleHideNavbar() {
+      if (window.scrollY >= 80) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
+    }
+
+    // Add event listener on mount
+    window.addEventListener("scroll", handleHideNavbar);
+
+    // Remove event listener on unmount to avoid memory leaks
+    return () => {
+      window.removeEventListener("scroll", handleHideNavbar);
+    };
+  }, []); // Empty dependency array ensures that this effect runs only once on mount
+
+  // console.log(showNavbar);
+
+  useEffect(function () {
+    setTimeout(() => {
+      setHideFlicker(true);
+    }, 12000);
+  }, []);
+
+  // Create a dynamic CSS rule based on showFlicker
+  const dynamicStyle = `
+    .type::after {
+      content: "█";
+      font-size: 2.5rem;
+      line-height: 2.5rem;
+      animation: ${showFlicker ? "cursor 1.1s infinite step-start" : "none"};
+    }
+  `;
+
+  const dynamicStyle2 = `
+    .type::after {
+      content: "";
+    }
+  `;
+
   return (
     <>
+      {showFlicker && !hideFlicker ? <style>{dynamicStyle}</style> : null}
+      {hideFlicker && <style>{dynamicStyle2}</style>}
       <Header>
         <Navbar
+          showNavbar={showNavbar}
           onOpenDialog={handleOpenDialog}
           onOpenUploadModal={handleOpenUploadModal}
         >
@@ -54,7 +110,8 @@ function App() {
         </Modal>
 
         <Modal isOpen={uploadModal} setIsOpen={setUploadModal}>
-          {user ? <p>Please log in first</p> : <UploadProjectForm />}
+          {/* {user ? <p>Please log in first</p> : <UploadProjectForm />} */}
+          <ContactForm />
         </Modal>
 
         {/* <Modal isOpen={isOpenDialog} setIsOpen={setIsOpenDialog}>
@@ -62,20 +119,33 @@ function App() {
         </Modal> */}
 
         <section className="first-section">
-          <div className="flex h-[40vh] items-center gap-4">
-            <p className="p-4">
-              Hi, my name is Sitha Sovannara. I&#39;m an aspiring web developer.
+          <div className="flex h-[100vh] items-center gap-4">
+            <p className="flex-wrap px-10 py-4 sm:p-4 md:w-[768px]">
+              <TypeAnimation
+                cursor={false}
+                className={`type`}
+                sequence={[
+                  800,
+                  "Hi, my name is Sitha Sovannara, an aspiring web developer.",
+                  () => {
+                    handleShowFlicker();
+                  },
+                ]}
+              />
             </p>
 
-            <img
-              className="hidden sm:block"
-              src="https://static1.personality-database.com/profile_images/beb19f206a174b0e97872b7136d45041.png"
-              style={{
-                boxShadow: "0px 0px 8px 8px white inset",
-              }}
-              // src="./IMG_0166.JPG"
-              alt="Amai Mask"
-            />
+            <div className="hidden h-[200px] w-[200px] lg:block">
+              <img
+                className=""
+                src="./amai_mask.png"
+                // src="https://static1.personality-database.com/profile_images/beb19f206a174b0e97872b7136d45041.png"
+                style={{
+                  boxShadow: "0px 0px 8px 8px white inset",
+                }}
+                // src="./IMG_0166.JPG"
+                alt="Amai Mask"
+              />
+            </div>
           </div>
         </section>
 
@@ -123,9 +193,7 @@ function App() {
           </GridContainer>
         </section>
 
-        <section>
-          <ContactForm />
-        </section>
+        <section>{/* <ContactForm /> */}</section>
       </Main>
       <Footer>
         <div>
