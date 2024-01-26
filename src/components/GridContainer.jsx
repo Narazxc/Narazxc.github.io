@@ -1,6 +1,6 @@
 function GridContainer({ children }) {
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       {/* <div className="h-52 rounded-md bg-purple-300 hover:bg-green-300">
         Fast React Pizza
       </div>

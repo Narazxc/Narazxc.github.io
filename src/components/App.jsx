@@ -51,7 +51,7 @@ function App() {
 
   useEffect(() => {
     function handleHideNavbar() {
-      if (window.scrollY >= 80) {
+      if (window.scrollY >= 90) {
         setShowNavbar(true);
       } else {
         setShowNavbar(false);
@@ -151,7 +151,7 @@ function App() {
 
         <section className="skills">
           <h2 className="my-4 text-2xl font-bold">Skill set</h2>
-          <div className="my-4 flex flex-wrap items-center justify-center gap-6">
+          <div className="my-4 flex flex-wrap items-center justify-center gap-6 px-10">
             {/* <img className="w-12" src={htmlIcon} alt="html icon" />
             <img className="w-12" src={cssIcon} alt="css icon" /> */}
             <img

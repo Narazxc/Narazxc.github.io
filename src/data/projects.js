@@ -6,6 +6,7 @@ export const projectData = [
     image: "",
     url: "",
     status: "",
+    deployedOn: "",
   },
   {
     name: "World Wise",
@@ -13,7 +14,8 @@ export const projectData = [
     description: "",
     image: "",
     url: "https://world-wise-narazxc.vercel.app",
-    status: "",
+    status: "deployed",
+    deployedOn: "Vercel",
   },
   {
     name: "usePopcorn",
@@ -21,7 +23,8 @@ export const projectData = [
     description: "",
     image: "",
     url: "https://use-popcorn-amber.vercel.app",
-    status: "",
+    status: "deployed",
+    deployedOn: "Vercel",
   },
   {
     name: "React quiz",
@@ -30,6 +33,7 @@ export const projectData = [
     image: "",
     url: "",
     status: "",
+    deployedOn: "",
   },
   {
     name: "myMoney",
@@ -38,6 +42,7 @@ export const projectData = [
     image: "",
     url: "https://mymoney-app-f9599.firebaseapp.com",
     status: "",
+    deployedOn: "GitHub Pages",
   },
   {
     name: "react firebase net ninja",
@@ -46,6 +51,7 @@ export const projectData = [
     image: "",
     url: "",
     status: "",
+    deployedOn: "",
   },
   {
     name: "secondy",
@@ -54,6 +60,7 @@ export const projectData = [
     image: "",
     url: "",
     status: "",
+    deployedOn: "",
   },
   {
     name: "Rbac",
@@ -61,7 +68,8 @@ export const projectData = [
     description: "Slow because this project uses free hosting plan",
     image: "",
     url: "https://rbac-user-management.onrender.com/",
-    status: "",
+    status: "deployed",
+    deployedOn: "Render.com",
   },
 
   {
@@ -70,7 +78,8 @@ export const projectData = [
     description: "",
     image: "",
     url: "https://the-wild-oasis-narazxc.vercel.app",
-    status: "",
+    status: "deployed",
+    deployedOn: "Vercel",
   },
   {
     name: "Countries-Catalog",
@@ -78,6 +87,7 @@ export const projectData = [
     description: "",
     image: "",
     url: "https://narazxc.github.io/Countries-Catalog",
-    status: "",
+    status: "deployed",
+    deployedOn: "GitHub Pages",
   },
 ];
