@@ -4,7 +4,7 @@ export const projectData = [
     technologies: [],
     description: "",
     image: "",
-    url: "",
+    url: "https://fast-react-pizza-pi.vercel.app/",
     status: "",
     deployedOn: "",
   },
